@@ -6,6 +6,7 @@
     ./colourschemes
 
     ./completion
+    ./filesystem
     ./git
     ./lsp
     ./neorg
@@ -22,6 +23,7 @@
 
   # Enable some plugins
   completion.enable = true;
+  filesystem.enable = true;
   git.enable = true;
   lsp.enable = true;
   neorg.enable = true;
