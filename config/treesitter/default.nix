@@ -84,11 +84,24 @@
       };
       treesitter-context = {
         enable = true;
+        settings = {
+          enable = false;
+        };
       };
       ts-context-commentstring = { 
         enable = true;
 	    disableAutoInitialization = false;
       };
     };
+
+    # Add some keymaps related to tree-sitter manipulation
+    keymaps = [
+      {
+        action = ":TSContextToggle<CR>";
+        key = "<leader>c";
+        mode = "n";
+        options = { silent = true; };
+      }
+    ];
   };
 }
