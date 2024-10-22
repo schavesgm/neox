@@ -102,7 +102,7 @@
           };
 
           # Python language servers
-          ruff-lsp = {
+          ruff = {
             enable = true;
           };
           pylsp = {

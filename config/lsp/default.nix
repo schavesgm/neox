@@ -1,8 +1,9 @@
 { lib, config, ... }: {
   # Import some modules from the configuration
   imports = [
-    ./nvim-lsp.nix
+    ./format.nix
     ./lsp-saga.nix
+    ./nvim-lsp.nix
   ];
 
   # Allow users to enable this module if wanted
@@ -14,5 +15,6 @@
   config = lib.mkIf config.lsp.enable {
     nvim-lsp.enable = lib.mkDefault true;
     lsp-saga.enable = lib.mkDefault true;
+    format.enable = lib.mkDefault true;
   };
 }

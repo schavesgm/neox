@@ -15,7 +15,6 @@
     ./treesitter
   ];
 
-
   # Enable some basic modules from the configuration
   base-options.enable = true;
   mappings.enable = true;
