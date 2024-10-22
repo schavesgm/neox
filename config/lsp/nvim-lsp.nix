@@ -5,7 +5,7 @@
   };
 
   # Configure the module
-  config = {
+  config = lib.mkIf config.nvim-lsp.enable {
     plugins = {
       lsp = {
         enable = true;
@@ -80,22 +80,23 @@
             extraOptions = {
             };
             settings = {
-              Lua = {
-                completion = {
-                  callSnippet = "Replace";
-                };
-                diagnostics = {
-                  globals = ["vim"];
-                };
-                hint = {
-                  enable = true;
-                };
-                workspace = {
-                  library = [
-                    ''[vim.fn.expand("$VIMRUNTIME/lua")] = true''
-                    ''[vim.fn.stdpath("config") .. "/lua"] = true''
-                  ];
-                };
+              completion = {
+                callSnippet = "Replace";
+              };
+              diagnostics = {
+                globals = [ "vim" ];
+              };
+              hint = {
+                enable = true;
+              };
+              telemetry = {
+                enable = true;
+              };
+              workspace = {
+                library = [
+                  ''[vim.fn.expand("$VIMRUNTIME/lua")] = true''
+                  ''[vim.fn.stdpath("config") .. "/lua"] = true''
+                ];
               };
             };
           };
