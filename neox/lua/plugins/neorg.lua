@@ -1,0 +1,32 @@
+---Module containing the configuration for the neorg plugin
+local neorg = require("neorg")
+
+-- Setup the plugin
+neorg.setup {
+    load = {
+        ["core.defaults"] = {},
+        ["core.concealer"] = {},
+        ["core.export"] = {},
+        ["core.completion"] = {
+            config = {
+                engine = "nvim-cmp",
+            },
+        },
+        ["core.export.markdown"] = {
+            config = {
+                extensions = {
+                    "todo-items-basic",
+                    "todo-items-pending",
+                    "todo-items-extended",
+                    "definition-lists",
+                    "mathematics",
+                    "metadata",
+                },
+            },
+        },
+    },
+}
+
+-- Disable the indent blankline in neorg
+_G.neox.set_autocommand("Neorg", "BufEnter", function() vim.cmd("IBLDisable") end)
+_G.neox.set_autocommand("Neorg", "BufLeave", function() vim.cmd("IBLEnable") end)
