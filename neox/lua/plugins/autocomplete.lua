@@ -20,7 +20,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 -- Allow custom gitcommit snippets in neogit
 luasnip.filetype_extend("NeogitCommitMessage", { "gitcommit" })
 
-
 -- Set nvim-cmp configuration
 nvim_cmp.setup {
     snippet = {
@@ -90,3 +89,14 @@ nvim_cmp.setup {
         { name = "neorg" },
     },
 }
+
+-- Add an autocommand to unlink previous snippet nodes from luasnip
+_G.neox.set_autocommand("Luasnip", "InsertLeave",
+    function()
+        local nodes_exist = luasnip.session.current_nodes[vim.api.nvim_get_current_buf()]
+        local jump_active = require("luasnip").session.jump_active
+        if nodes_exist and not jump_active then
+            luasnip.unlink_current()
+        end
+    end
+)
