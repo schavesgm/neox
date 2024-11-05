@@ -42,6 +42,9 @@ in with pkgs.vimPlugins; [
   # Status lines
   lualine-nvim
 
+  # Movemement
+  harpoon2
+
   # Git
   gitsigns-nvim
   neogit
