@@ -28,5 +28,6 @@ neorg.setup {
 }
 
 -- Disable the indent blankline in neorg
-_G.neox.set_autocommand("Neorg", "BufEnter", function() vim.cmd("IBLDisable") end)
-_G.neox.set_autocommand("Neorg", "BufLeave", function() vim.cmd("IBLEnable") end)
+local neorg_options = { pattern = ".norg" }
+_G.neox.set_autocommand("Neorg", "BufEnter", function() vim.cmd("IBLDisable") end, neorg_options)
+_G.neox.set_autocommand("Neorg", "BufLeave", function() vim.cmd("IBLEnable") end, neorg_options)
