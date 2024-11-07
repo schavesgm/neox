@@ -7,6 +7,10 @@ with pkgs; [
   marksman
   nixd
 
+  # Install clang and clang-tools to have access to clangd
+  clang
+  clang-tools
+
   # Command line tools
   ripgrep
   glow

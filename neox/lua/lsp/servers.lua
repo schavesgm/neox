@@ -42,7 +42,10 @@ local servers = {
     marksman = {},
 
     -- Nix language servers
-    nixd = {}
+    nixd = {},
+
+    -- C-family language servers
+    clangd = {}
 }
 
 ---Set all keymaps in a Lsp-attached buffer
