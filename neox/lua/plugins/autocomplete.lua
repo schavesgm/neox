@@ -19,6 +19,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Allow custom gitcommit snippets in neogit
 luasnip.filetype_extend("NeogitCommitMessage", { "gitcommit" })
+luasnip.filetype_extend("octo", { "markdown" })
 
 -- Set nvim-cmp configuration
 nvim_cmp.setup {
