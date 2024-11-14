@@ -44,6 +44,7 @@ in with pkgs.vimPlugins; [
 
   # Movemement
   harpoon2
+  flash-nvim
 
   # Git
   gitsigns-nvim
