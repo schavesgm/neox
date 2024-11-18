@@ -22,6 +22,7 @@
     # Create an overlay wrapping the downloaded neovim with my configuration
     overlayNeovim = prev: final: {
       nvim-custom = import ./neox/package.nix {
+        colourscheme = "catppuccin";
         pkgs = final;
       };
     };

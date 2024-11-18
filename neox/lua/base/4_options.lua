@@ -1,6 +1,3 @@
--- Set the colourscheme of the configuration
-vim.cmd("colorscheme catppuccin-macchiato")
-
 -- Basic options
 vim.opt.backup = false
 vim.opt.swapfile = false
