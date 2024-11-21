@@ -52,17 +52,24 @@ local servers = {
 ---@param bufnr number Buffer number of the LSP-attached buffer
 local function _set_keymaps_on_attach(bufnr)
     local options = { buffer = bufnr }
+
+    ---Function creating a command for Rust and for other LSP servers
+    local function _create_rust_keymap(rust_command, other_command)
+        local command_to_run = vim.bo.filetype == "rust" and rust_command or other_command
+        return function() vim.cmd(command_to_run) end
+    end
+
     _G.neox.set_keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", options)
     _G.neox.set_keymap("n", "gr", "<cmd>Lspsaga finder<CR>", options)
     _G.neox.set_keymap("n", "gT", "<cmd>Lspsaga peek_type_definition<CR>", options)
 
-    _G.neox.set_keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", options)
+    _G.neox.set_keymap("n", "K", _create_rust_keymap("RustLsp hover actions", "Lspsaga hover_doc"), options)
     _G.neox.set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", options)
     _G.neox.set_keymap("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", options)
 
     _G.neox.set_keymap("n", "<leader>ws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", options)
     _G.neox.set_keymap("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", options)
-    _G.neox.set_keymap("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+    _G.neox.set_keymap("n", "<leader>ca", _create_rust_keymap("RustLsp codeAction", "Lspsaga code_action"), options)
 end
 
 ---Function to run each time an LSP client is attached to a buffer
@@ -90,3 +97,15 @@ for client, configuration in pairs(servers) do
     local server_config = vim.tbl_deep_extend("keep", configuration, options)
     require("lspconfig")[client].setup(server_config)
 end
+
+
+---Setup Rust LSP capabilities
+vim.g.rustaceanvim = {
+    -- Plugin configuration
+    tools = {},
+    -- LSP configuration
+    server = {
+        on_attach = on_attach,
+        default_settings = { ['rust-analyzer'] = {}, },
+    },
+}

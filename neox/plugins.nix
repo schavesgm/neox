@@ -1,4 +1,4 @@
-{ pkgs, colourscheme, ... }:
+{ pkgs, ... }:
 let
   _ = rev: ref: repository: pkgs.vimUtils.buildVimPlugin {
     pname = "${pkgs.lib.strings.sanitizeDerivationName repository}";
@@ -40,6 +40,7 @@ in with pkgs.vimPlugins; [
   lspkind-nvim
   lspsaga-nvim
   conform-nvim
+  rustaceanvim
 
   # Status lines
   lualine-nvim
