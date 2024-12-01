@@ -88,10 +88,35 @@ local function add_timed_autocommand(callback, identifier, minutes, options)
     )
 end
 
+---Load a plugin configuration lazily using an auto-command
+---@param event table | string; Events triggering the autocommand
+---@param plugin_name string; Name of the plugin package to load
+---@param callback function; Callback function to execute on autocommand
+---@param options table | nil; Optional table with the options passed to the autocommand
+local function lazy_load(event, plugin_name, callback, options)
+    set_autocommand("LazyLoad", event, function()
+        vim.cmd(string.format("packadd %s", plugin_name))
+        callback()
+    end, options)
+end
+
+---Load a plugin configuration on an autocommand call
+---@param command table | string; Commands triggering the auto-command
+---@param plugin_name string; Name of the plugin package to load
+---@param callback function; Callback function to execute on autocommand
+local function command_lazy_load(command, plugin_name, callback)
+    set_autocommand("LazyLoad", "CmdUndefined", function()
+        vim.cmd(string.format("packadd %s", plugin_name))
+        callback()
+    end, { pattern = command })
+end
+
 ---Table containing a set of functions to use in the configuration. They are accessible in all other
 ---scripts as it is a global table
 _G.neox = {
     set_keymap = set_keymap,
     set_autocommand = set_autocommand,
-    add_timed_autocommand = add_timed_autocommand
+    add_timed_autocommand = add_timed_autocommand,
+    lazy_load = lazy_load,
+    command_lazy_load = command_lazy_load,
 }

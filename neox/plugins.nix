@@ -10,54 +10,62 @@ let
     };
   };
 
-in with pkgs.vimPlugins; [
-  # Colourschemes bundled in the system
-  catppuccin-nvim
-  kanagawa-nvim
+in {
+  # These plugins will be automatically sourced at startup (can be slow)
+  start = with pkgs.vimPlugins; [
+    # Colourschemes bundled in the system
+    catppuccin-nvim
 
-  # Treesitter
-  nvim-treesitter.withAllGrammars
-  nvim-treesitter-textobjects
-  indent-blankline-nvim-lua
-  rainbow-delimiters-nvim
-  nvim-web-devicons
+    # Treesitter
+    nvim-treesitter.withAllGrammars
+    nvim-treesitter-textobjects
+    indent-blankline-nvim-lua
+    rainbow-delimiters-nvim
+    nvim-web-devicons
 
-  # File-managers
-  telescope-nvim
+    # Autocompletion
+    luasnip
+    friendly-snippets
+    nvim-cmp
+    cmp-nvim-lsp
+    cmp-buffer
+    cmp-path
+    cmp_luasnip
+    cmp-emoji
 
-  # Autocompletion
-  luasnip
-  friendly-snippets
-  nvim-cmp
-  cmp-nvim-lsp
-  cmp-buffer
-  cmp-path
-  cmp_luasnip
-  cmp-emoji
+    # Pickers
+    telescope-nvim
 
-  # Language server protocol
-  nvim-lspconfig
-  lspkind-nvim
-  lspsaga-nvim
-  conform-nvim
-  rustaceanvim
+    # Language server protocol
+    nvim-lspconfig
+    lspkind-nvim
+    lspsaga-nvim
+    conform-nvim
+    rustaceanvim
 
-  # Status lines
-  lualine-nvim
+    # Status lines
+    lualine-nvim
 
-  # Movemement
-  harpoon2
-  flash-nvim
+    # Movemement
+    harpoon2
+    flash-nvim
 
-  # Git
-  gitsigns-nvim
-  neogit
+    # Git
+    gitsigns-nvim
 
-  # CLI integration
-  yazi-nvim
-  glow-nvim
-  octo-nvim
+    # Useful plugins
+    neorg
 
-  # Useful plugins
-  neorg
-]
+    # CLI integration
+    octo-nvim
+  ];
+
+  # These plugins will be source when `:packadd ${plugin_name}` is called
+  opt = with pkgs.vimPlugins; [
+    # Git
+    neogit
+
+    # CLI integration
+    yazi-nvim
+  ];
+}

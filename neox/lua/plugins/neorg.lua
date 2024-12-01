@@ -1,8 +1,7 @@
 ---Module containing the configuration for the neorg plugin
-local neorg = require("neorg")
 
 -- Setup the plugin
-neorg.setup {
+require("neorg").setup {
     load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
@@ -28,6 +27,6 @@ neorg.setup {
 }
 
 -- Disable the indent blankline in neorg
-local neorg_options = { pattern = ".norg" }
+local neorg_options = { pattern = "*.norg" }
 _G.neox.set_autocommand("Neorg", "BufEnter", function() vim.cmd("IBLDisable") end, neorg_options)
 _G.neox.set_autocommand("Neorg", "BufLeave", function() vim.cmd("IBLEnable") end, neorg_options)

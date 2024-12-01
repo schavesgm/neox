@@ -21,10 +21,7 @@
 
     # Create an overlay wrapping the downloaded neovim with my configuration
     overlayNeovim = prev: final: {
-      nvim-custom = import ./neox/package.nix {
-        colourscheme = "catppuccin";
-        pkgs = final;
-      };
+      neox-nvim = import ./neox/package.nix { pkgs = final; };
     };
 
     # Add the overlays to the packages so that we can access the newly created package
@@ -33,10 +30,10 @@
       overlays = [ overlayFlakeInputs overlayNeovim ];
     };
   in {
-    packages.x86_64-linux.default = pkgs.nvim-custom;
+    packages.x86_64-linux.default = pkgs.neox-nvim;
     apps.x86_64-linux.default = {
       type = "app";
-      program = "${pkgs.nvim-custom}/bin/nvim";
+      program = "${pkgs.neox-nvim}/bin/nvim";
     };
   };
 }

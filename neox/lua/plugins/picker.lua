@@ -1,7 +1,8 @@
+---Module containing the telescope picker configuration
+
 --  Load the plugins required in this configuration
 local telescope = require("telescope")
 local telescope_actions = require("telescope.actions")
-local telescope_config = require("telescope.config").values
 
 -- Setup telescope plugin
 telescope.setup {
@@ -65,6 +66,8 @@ telescope.setup {
 ---Function integrating harpoon in a telescope instance
 local function show_harpoon_files()
     local harpoon_files = require("harpoon"):list()
+    local telescope_config = require("telescope.config").values
+
     local file_paths = {}
     for _, item in ipairs(harpoon_files.items) do
         table.insert(file_paths, item.value)
