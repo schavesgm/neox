@@ -84,6 +84,7 @@ nvim_cmp.setup {
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "emoji" },
+        { name = "git" },
         { name = "nvim_lua" },
         { name = "path" },
         { name = "buffer", keyword_length = 5 },

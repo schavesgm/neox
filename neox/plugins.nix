@@ -32,6 +32,7 @@ in {
     cmp-path
     cmp_luasnip
     cmp-emoji
+    cmp-git
 
     # Pickers
     telescope-nvim
