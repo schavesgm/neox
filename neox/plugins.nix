@@ -36,6 +36,7 @@ in {
 
     # Pickers
     telescope-nvim
+    neorg-telescope
 
     # Language server protocol
     nvim-lspconfig

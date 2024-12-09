@@ -4,6 +4,14 @@
 require("neorg").setup {
     load = {
         ["core.defaults"] = {},
+        ["core.dirman"] = {
+            config = {
+                workspaces = {
+                    second_brain = "~/second_brain",
+                },
+                index = "main.norg",
+            },
+        },
         ["core.concealer"] = {},
         ["core.export"] = {},
         ["core.completion"] = {
@@ -23,6 +31,7 @@ require("neorg").setup {
                 },
             },
         },
+        ["core.integrations.telescope"] = {}
     },
 }
 
@@ -30,3 +39,11 @@ require("neorg").setup {
 local neorg_options = { pattern = "*.norg" }
 _G.neox.set_autocommand("Neorg", "BufEnter", function() vim.cmd("IBLDisable") end, neorg_options)
 _G.neox.set_autocommand("Neorg", "BufLeave", function() vim.cmd("IBLEnable") end, neorg_options)
+
+-- Set some keybindings for neorg
+_G.neox.set_autocommand("Neorg", "BufEnter",
+    function()
+        _G.neox.set_keymap("n", "<leader>nc", "<Plug>(neorg.core.looking-glass.magnify-code-block")
+    end,
+    { pattern = "*.norg" }
+)
