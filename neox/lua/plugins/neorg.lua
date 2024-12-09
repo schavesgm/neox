@@ -4,6 +4,14 @@
 require("neorg").setup {
     load = {
         ["core.defaults"] = {},
+        ["core.dirman"] = {
+            config = {
+                workspaces = {
+                    second_brain = "~/second_brain",
+                },
+                index = "main.norg",
+            },
+        },
         ["core.concealer"] = {},
         ["core.export"] = {},
         ["core.completion"] = {
