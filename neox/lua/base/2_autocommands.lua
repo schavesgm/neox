@@ -29,5 +29,5 @@ _G.neox.add_timed_autocommand(
     function(buffer) vim.cmd(string.format(":w %s", buffer)) end,
     "MarkupAutoSave",
     3.0,
-    { pattern = { "*.tex", "*.md", "*.norg", "*.rst" } }
+    { pattern = { "*.tex", "*.md", "*.rst" } }
 )
