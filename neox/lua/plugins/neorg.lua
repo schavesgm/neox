@@ -7,8 +7,9 @@ require("neorg").setup {
         ["core.dirman"] = {
             config = {
                 workspaces = {
-                    second_brain = "~/second_brain",
+                    notes = "~/notes",
                 },
+                default_workspace = "notes",
                 index = "main.norg",
             },
         },
@@ -29,6 +30,12 @@ require("neorg").setup {
                     "mathematics",
                     "metadata",
                 },
+            },
+        },
+        ["core.integrations.treesitter"] = {
+            config = {
+                configure_parsers = true,
+                install_parsers = true,
             },
         },
         ["core.integrations.telescope"] = {}

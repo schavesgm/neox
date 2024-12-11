@@ -11,8 +11,11 @@ require("octo").setup()
 vim.treesitter.language.register("markdown", "octo")
 
 -- Set some keymaps to autocomplete in octo
-_G.neox.set_autocommand("Octo", "BufEnter", function()
-    local options = { silent = true, buffer = true }
-    _G.neox.set_keymap("i", "@", "@<C-x><C-o>", options)
-    _G.neox.set_keymap("i", "#", "#<C-x><C-o>", options)
-end)
+_G.neox.set_autocommand("Octo", "FileType",
+    function()
+        local options = { silent = true, buffer = true }
+        _G.neox.set_keymap("i", "@", "@<C-x><C-o>", options)
+        _G.neox.set_keymap("i", "#", "#<C-x><C-o>", options)
+    end,
+    { pattern = "octo" }
+)
