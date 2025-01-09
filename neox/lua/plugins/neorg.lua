@@ -7,7 +7,7 @@ require("neorg").setup {
         ["core.dirman"] = {
             config = {
                 workspaces = {
-                    notes = "~/notes",
+                    notes = "~/Documents/notes",
                 },
                 default_workspace = "notes",
                 index = "main.norg",
