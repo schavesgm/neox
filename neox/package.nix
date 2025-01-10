@@ -11,8 +11,7 @@ let
     withPython3 = true;
     withNodeJs = true;
     configure = {
-      customRC = builtins.concatStringsSep 
-        "\n" ([''colorscheme catppuccin-macchiato''] ++ (import ./config.nix { inherit pkgs; }));
+      customRC = builtins.concatStringsSep "\n" (import ./config.nix { inherit pkgs; });
       packages.all = import ./plugins.nix { inherit pkgs; };
     };
   };

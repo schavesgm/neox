@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  _ = rev: ref: repository: pkgs.vimUtils.buildVimPlugin {
+  fetchFromGithub = rev: ref: repository: pkgs.vimUtils.buildVimPlugin {
     pname = "${pkgs.lib.strings.sanitizeDerivationName repository}";
     version = ref;
     src = builtins.fetchGit {
@@ -9,12 +9,12 @@ let
       rev = rev;
     };
   };
-
 in {
   # These plugins will be automatically sourced at startup (can be slow)
   start = with pkgs.vimPlugins; [
     # Colourschemes bundled in the system
     catppuccin-nvim
+    (fetchFromGithub "f0ff26080318013fd79a34b57d2937b7b4c5618b" "main" "jackplus-xyz/binary.nvim")
 
     # Treesitter
     nvim-treesitter.withAllGrammars

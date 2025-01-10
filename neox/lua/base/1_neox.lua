@@ -1,5 +1,6 @@
 ---Module containing a collection of global functions available in the configuration
 ---NOTE: this file should be the first one to be loaded in the configuration.
+vim.cmd "colorscheme catppuccin-macchiato"
 
 ---@type table Table containing the default configuration of all keymaps
 local DEFAULT_KEYMAP_OPTIONS = { noremap = true, silent = true }
