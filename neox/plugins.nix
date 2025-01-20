@@ -23,7 +23,7 @@ in {
     rainbow-delimiters-nvim
     nvim-web-devicons
 
-    # Autocompletion
+    # Autocompletion and snippets
     luasnip
     friendly-snippets
     nvim-cmp
