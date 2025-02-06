@@ -1,7 +1,7 @@
 ---Module containing the configuration of the git-related plugins
 
 -- Lazy load Neogit on `Neogit` call
-_G.neox.command_lazy_load("Neogit", "neogit", function() require("neogit").setup() end)
+require("neogit").setup()
 _G.neox.set_keymap("n", "<leader>g", ":Neogit<Cr>", nil)
 
 -- Setup gitsigns

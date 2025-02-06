@@ -58,11 +58,11 @@ in {
     lualine-nvim
 
     # Movemement
-    harpoon2
     flash-nvim
 
     # Git
     gitsigns-nvim
+    neogit
 
     # Useful plugins
     neorg
@@ -72,11 +72,5 @@ in {
   ];
 
   # These plugins will be source when `:packadd ${plugin_name}` is called
-  opt = with pkgs.vimPlugins; [
-    # Git
-    neogit
-
-    # CLI integration
-    yazi-nvim
-  ];
+  opt = [ ];
 }

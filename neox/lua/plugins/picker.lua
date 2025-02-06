@@ -63,28 +63,7 @@ telescope.setup {
     },
 }
 
----Function integrating harpoon in a telescope instance
-local function show_harpoon_files()
-    local harpoon_files = require("harpoon"):list()
-    local telescope_config = require("telescope.config").values
-
-    local file_paths = {}
-    for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-    end
-
-    require("telescope.pickers").new({}, {
-        prompt_title = "Harpoon",
-        finder = require("telescope.finders").new_table({
-            results = file_paths,
-        }),
-        previewer = telescope_config.file_previewer({}),
-        sorter = telescope_config.generic_sorter({}),
-    }):find()
-end
-
 --- Set some telescope keybindings in the system
 _G.neox.set_keymap("n", "<leader>tf", "<cmd>Telescope find_files<CR>")
 _G.neox.set_keymap("n", "<leader>tg", "<cmd>Telescope live_grep<CR>")
 _G.neox.set_keymap("n", "<leader>tt", "<cmd>Telescope resume<cr>")
-_G.neox.set_keymap("n", "<C-e>", function() show_harpoon_files() end)
