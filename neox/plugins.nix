@@ -44,8 +44,7 @@ in {
     cmp-git
 
     # Pickers
-    telescope-nvim
-    neorg-telescope
+    fzf-lua
 
     # Language server protocol
     nvim-lspconfig

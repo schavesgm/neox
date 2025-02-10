@@ -38,7 +38,6 @@ require("neorg").setup {
                 install_parsers = true,
             },
         },
-        ["core.integrations.telescope"] = {}
     },
 }
 
