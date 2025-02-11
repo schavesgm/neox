@@ -4,7 +4,10 @@
 require("lspsaga").setup()
 
 -- This will avoid an annoying layout shift in the screen
-vim.opt.signcolumn = "yes"
+_G.vim.opt.signcolumn = "yes"
+
+-- Solve the issue with diagnostics in the latest (1153bc) LspSaga commit
+_G.vim.diagnostic.config({ severity_sort = true, })
 
 -- Add some default keybindings to interface with LSP and LSPsaga
 _G.neox.set_keymap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>")
