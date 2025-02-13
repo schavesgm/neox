@@ -1,4 +1,4 @@
----Module containing the configuration of the treesitter plugin
+---Module containing the configuration of the treesitter plugin and related functionality
 local treesitter = require("nvim-treesitter.configs")
 
 -- Setup nvim-web-devicons and indent blankline

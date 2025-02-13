@@ -16,8 +16,8 @@ in {
     catppuccin-nvim
     (fetchFromGithub "f0ff26080318013fd79a34b57d2937b7b4c5618b" "main" "jackplus-xyz/binary.nvim")
 
-    # NOTE: install `norg_meta` separately because it is not present in `allGrammars` 😭
     # Treesitter
+    # NOTE: install `norg_meta` separately because it is not present in `allGrammars` 😭
     (nvim-treesitter.withPlugins (_: nvim-treesitter.allGrammars ++ [
       (pkgs.tree-sitter.buildGrammar {
         language = "norg_meta";
@@ -27,10 +27,14 @@ in {
         );
       })
     ]))
-    nvim-treesitter-textobjects
     indent-blankline-nvim-lua
     rainbow-delimiters-nvim
     nvim-web-devicons
+
+    # Movement
+    mini-ai
+    mini-surround
+    mini-operators
 
     # Autocompletion and snippets
     luasnip
