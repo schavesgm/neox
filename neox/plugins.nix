@@ -46,6 +46,7 @@ in {
     cmp_luasnip
     cmp-emoji
     cmp-git
+    neogen
 
     # Pickers
     fzf-lua

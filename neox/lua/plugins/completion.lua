@@ -5,6 +5,19 @@ local luasnip = require("luasnip")
 local nvim_cmp = require("cmp")
 local lspkind = require("lspkind")
 
+-- Setup `neogen` to generate documentation
+require("neogen").setup {
+    snippet_engine = "luasnip",
+    languages = {
+        python = {
+            template = {
+                annotation_convention = "google_docstrings",
+            }
+        }
+    }
+}
+_G.neox.set_keymap("n", "<leader>nf", ":lua require('neogen').generate()<Cr>")
+
 -- Set the correct complete options
 vim.o.completeopt = "menu,menuone,noselect"
 
@@ -87,7 +100,7 @@ nvim_cmp.setup {
         { name = "git" },
         { name = "nvim_lua" },
         { name = "path" },
-        { name = "buffer", keyword_length = 5 },
+        { name = "buffer",  keyword_length = 5 },
         { name = "neorg" },
     },
 }
