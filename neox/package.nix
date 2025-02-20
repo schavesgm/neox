@@ -1,8 +1,8 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 let
   neoxDependencies = pkgs.symlinkJoin {
-      name = "neoxDependencies";
-      paths = import ./dependencies.nix { inherit pkgs; };
+    name = "neoxDependencies";
+    paths = import ./dependencies.nix { inherit pkgs; };
   };
 
   # Construct our custom neox neovim wrapped package
@@ -15,7 +15,8 @@ let
       packages.all = import ./plugins.nix { inherit pkgs; };
     };
   };
-in pkgs.writeShellApplication {
+in
+pkgs.writeShellApplication {
   name = "nvim";
   runtimeInputs = [ neoxDependencies ];
   text = ''${neoxNeovim}/bin/nvim "$@"'';

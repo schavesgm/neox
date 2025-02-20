@@ -1,7 +1,8 @@
 { pkgs }:
 let
   # Function transforming configuration files into its own derivation to be used by the system
-  buildModule = directory:
+  buildModule =
+    directory:
     let
       config-dir = pkgs.stdenv.mkDerivation {
         name = "neox-${directory}-configuration";
@@ -11,10 +12,8 @@ let
           cp ./* $out/
         '';
       };
-    in 
-      builtins.map 
-        (file: "${config-dir}/${file}")
-        (builtins.attrNames (builtins.readDir config-dir));
+    in
+    builtins.map (file: "${config-dir}/${file}") (builtins.attrNames (builtins.readDir config-dir));
 
   # Create the configuration derivation and use it in the main body of the function
   neox = builtins.concatLists [
@@ -23,4 +22,5 @@ let
     (buildModule "lsp")
     (buildModule "snippets")
   ];
-in builtins.map (file: "source ${file}") neox
+in
+builtins.map (file: "source ${file}") neox
