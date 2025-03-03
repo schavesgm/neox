@@ -48,7 +48,10 @@ local servers = {
     nixd = {},
 
     -- C-family language servers
-    clangd = {}
+    clangd = {},
+
+    -- Web-development language servers
+    kotlin_language_server = {}
 }
 
 ---Set all keymaps in a Lsp-attached buffer

@@ -7,6 +7,7 @@ conform.setup {
         lua = { "stylua" },
         python = { "ruff_format" },
         nix = { "nixfmt" },
+        kotlin = { "ktfmt" },
     },
 }
 
