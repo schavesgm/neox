@@ -1,8 +1,9 @@
 -- Module containing the configuration of the movement plugins
 
--- Setup the `mini` plugins
+-- Setup `mini.ai` to enhance treesitter text-objects
 require("mini.ai").setup()
-require("mini.operators").setup()
+
+-- Setup `mini.surround` to add surround operators
 require("mini.surround").setup()
 
 -- Setup flash movement keybindings

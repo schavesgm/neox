@@ -41,7 +41,6 @@ in
     # Movement
     mini-ai
     mini-surround
-    mini-operators
 
     # Autocompletion and snippets
     luasnip
