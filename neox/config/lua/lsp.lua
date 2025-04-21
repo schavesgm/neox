@@ -1,5 +1,24 @@
 ---Module containing the configuration of the LSP capabilities
 
+vim.o.winborder = "rounded"
+
+-- Create an autocommand to attach capabilities on LSP attachment
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if client == nil then
+            return
+        end
+
+        if client:supports_method("textDocument/completion") then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
+    end,
+})
+
+-- Eliminate no-select to avoid annoying auto-completion
+vim.cmd("set completeopt+=noselect,menu,menuone")
+
 -- Setup LSP-saga
 require("lspsaga").setup()
 

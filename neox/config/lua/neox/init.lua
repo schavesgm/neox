@@ -1,6 +1,4 @@
 ---Module containing a collection of global functions available in the configuration
----NOTE: this file should be the first one to be loaded in the configuration.
-vim.cmd "colorscheme catppuccin-macchiato"
 
 ---@type table Table containing the default configuration of all keymaps
 local DEFAULT_KEYMAP_OPTIONS = { noremap = true, silent = true }
@@ -114,7 +112,7 @@ end
 
 ---Table containing a set of functions to use in the configuration. They are accessible in all other
 ---scripts as it is a global table
-_G.neox = {
+return {
     set_keymap = set_keymap,
     set_autocommand = set_autocommand,
     add_timed_autocommand = add_timed_autocommand,

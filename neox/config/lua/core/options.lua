@@ -22,6 +22,7 @@ vim.opt.showtabline = 2
 vim.opt.laststatus = 3
 vim.opt.colorcolumn = "100"
 vim.opt.foldlevel = 99
+vim.opt.winborder = "rounded"
 
 -- Navigation options
 vim.opt.wrap = false

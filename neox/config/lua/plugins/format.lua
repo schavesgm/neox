@@ -1,4 +1,4 @@
----Module containing the definition of the LSP formatting functions
+---Module containing the definition of the formatting functionality
 local conform = require("conform")
 
 -- Set the plugin formatting options
