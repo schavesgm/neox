@@ -8,6 +8,7 @@ conform.setup {
         python = { "ruff_format" },
         nix = { "nixfmt" },
         kotlin = { "ktlint", "ktfmt" },
+        typst = { "typstyle" },
     },
 }
 

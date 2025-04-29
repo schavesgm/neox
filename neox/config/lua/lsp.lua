@@ -63,6 +63,9 @@ local servers = {
     -- Markdown language servers
     marksman = {},
 
+    -- Typst language servers
+    tinymist = {},
+
     -- Nix language servers
     nixd = {},
 
