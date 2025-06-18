@@ -43,16 +43,9 @@ in
     mini-surround
 
     # Autocompletion and snippets
+    blink-cmp
     luasnip
     friendly-snippets
-    nvim-cmp
-    cmp-nvim-lsp
-    cmp-buffer
-    cmp-path
-    cmp_luasnip
-    cmp-emoji
-    cmp-git
-    neogen
 
     # Pickers
     fzf-lua
