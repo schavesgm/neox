@@ -57,6 +57,9 @@ in
     conform-nvim
     rustaceanvim
 
+    # AI-integrations
+    avante-nvim
+
     # Status lines
     lualine-nvim
 

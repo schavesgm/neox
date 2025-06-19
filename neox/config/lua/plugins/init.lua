@@ -1,6 +1,7 @@
 ---Entry point of the plugins module
 require("plugins.colors")
 require("plugins.completion")
+require("plugins.copilot")
 require("plugins.format")
 require("plugins.git")
 require("plugins.integrations")
