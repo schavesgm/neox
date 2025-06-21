@@ -26,6 +26,13 @@ in
       nvim-treesitter.allGrammars
       ++ [
         (pkgs.tree-sitter.buildGrammar {
+          language = "norg";
+          version = "d89d95a";
+          src = (
+            fetchFromGithub "d89d95af13d409f30a6c7676387bde311ec4a2c8" "main" "nvim-neorg/tree-sitter-norg"
+          );
+        })
+        (pkgs.tree-sitter.buildGrammar {
           language = "norg_meta";
           version = "6f0510c";
           src = (
