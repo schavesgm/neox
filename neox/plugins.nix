@@ -77,8 +77,9 @@ in
     gitsigns-nvim
     neogit
 
-    # Useful plugins
+    # Note-taking plugins
     neorg
+    orgmode
 
     # CLI integration
     octo-nvim
