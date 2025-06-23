@@ -79,7 +79,6 @@ in
 
     # Note-taking plugins
     neorg
-    orgmode
 
     # CLI integration
     octo-nvim

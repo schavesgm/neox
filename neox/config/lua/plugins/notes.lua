@@ -1,11 +1,5 @@
 ---Module containing the configuration for the note-taking capabilities
 
--- Setup orgmode plugin
-require("orgmode").setup({
-    org_agenda_files = "~/Documents/notes/**/*",
-    org_default_notes_files = "~/Documents/notes/refile.org",
-})
-
 -- Setup the neorg plugin
 require("neorg").setup({
     load = {
