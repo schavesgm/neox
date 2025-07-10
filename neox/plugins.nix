@@ -46,7 +46,6 @@ in
     nvim-web-devicons
 
     # Movement
-    mini-ai
     mini-surround
 
     # Autocompletion and snippets
@@ -69,9 +68,6 @@ in
 
     # Status lines
     lualine-nvim
-
-    # Movemement
-    flash-nvim
 
     # Git
     gitsigns-nvim
