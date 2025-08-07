@@ -44,6 +44,7 @@ in
     indent-blankline-nvim-lua
     rainbow-delimiters-nvim
     nvim-web-devicons
+    render-markdown-nvim
 
     # Movement
     mini-surround
@@ -75,6 +76,7 @@ in
 
     # Note-taking plugins
     neorg
+    obsidian-nvim
 
     # CLI integration
     octo-nvim

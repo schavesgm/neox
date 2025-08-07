@@ -1,5 +1,37 @@
 ---Module containing the configuration for the note-taking capabilities
 
+-- Setup the markdown renderer
+require("render-markdown").setup({
+    completions = { lsp = { enabled = true }, blink = { enabled = true } },
+})
+
+-- Setup obsidian-nvim
+require("obsidian").setup({
+    workspaces = {
+        {
+            name = "vault",
+            path = "~/Documents/vault"
+        }
+    },
+    notes_subdir = "notes",
+    new_notes_location = "notes_subdir",
+    daily_notes = {
+        folder = "journal",
+        date_format = "%Y-%m-%d",
+        default_tags = { "journal" },
+        template = "journal.md",
+    },
+    templates = {
+        folder = "templates",
+        date_format = "%Y-%m-%d-%a",
+        time_format = "%H:%M",
+    },
+    completion = {
+        blink = true,
+        nvim_cmp = false,
+    }
+})
+
 -- Setup the neorg plugin
 require("neorg").setup({
     load = {
