@@ -29,7 +29,8 @@ require("obsidian").setup({
     completion = {
         blink = true,
         nvim_cmp = false,
-    }
+    },
+    legacy_commands = false
 })
 
 -- Setup the neorg plugin
