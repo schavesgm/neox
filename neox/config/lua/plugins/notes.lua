@@ -23,7 +23,7 @@ require("obsidian").setup({
     },
     templates = {
         folder = "templates",
-        date_format = "%Y-%m-%d-%a",
+        date_format = "%d-%m-%Y",
         time_format = "%H:%M",
     },
     completion = {
