@@ -37,7 +37,7 @@ local servers = {
     clangd = {},
 
     -- Web-development language servers
-    kotlin_language_server = {},
+    kotlin_lsp = {},
 }
 
 -- Create an autocommand to attach capabilities on LSP attachment
