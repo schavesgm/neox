@@ -41,7 +41,7 @@ in
         })
       ]
     ))
-    indent-blankline-nvim-lua
+    indent-blankline-nvim
     rainbow-delimiters-nvim
     nvim-web-devicons
     render-markdown-nvim
